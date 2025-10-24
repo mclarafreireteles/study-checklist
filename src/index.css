@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+	--lima---checkbox: #caff59;
+	--roxo-primário: #877eed;
+	--roxo-hover: #544acb;
+	--background: #1e1e1e;
+	--cinza: #504d4d;
+	--cinza-médio: #8a8a8a;
+	--cinza-claro: #eaeaea;
+	--branco: #fff;
+	--baby-blue: #dbe4ef;
+
+  --font-family: "Montserrat", sans-serif;
+  --second-family: "Material Icons", sans-serif;
+  --third-family: "Geologica", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background-color: #403C3B;
+  background-image: url('/bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;
+}
+
+.form-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}

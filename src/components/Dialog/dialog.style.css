@@ -1,0 +1,25 @@
+::backdrop {
+  background: var(--cinza);
+  opacity: 0.75;
+}
+
+.dialog-container {
+  background-color: var(--background);
+  border-radius: 16px;
+  padding: 16px;
+  border: none;
+}
+.close-btn-wrapper {
+  text-align: right;
+  /* margin-bottom: 10px; */
+}
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dialog-container .body {
+  padding: 10px 0;
+}
