@@ -79,6 +79,20 @@ function App() {
     toggleDialog();
   }
 
+  const toggleTodoCompleted = (todoItem) => {
+    setTodos(prevState => {
+      return prevState.map(todo => {
+        if (todo.id == todoItem.id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo;
+      })
+    })
+  }
+
   return (
     <main>
       <Container>
@@ -92,13 +106,13 @@ function App() {
           <SubHeading>Para estudar</SubHeading>
           <ToDoList>
             {todos.filter(t => !t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} />
+              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
             })}
           </ToDoList>
           <SubHeading>Concluído</SubHeading>
           <ToDoList>
             {todos.filter(t => t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} />
+              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
             })}
           </ToDoList>
           <Footer>
