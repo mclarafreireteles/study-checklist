@@ -1,8 +1,8 @@
 import './button.style.css'
 
-export function Button({ children, ...props }){
+export function Button({ children, ...rest }){
     return (
-        <button className='button' {...props}>
+        <button className='button' {...rest}>
             {children}
         </button>
     )

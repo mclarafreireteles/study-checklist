@@ -28,9 +28,3 @@ body {
   background-size: auto;
 }
 
-.form-dialog {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
