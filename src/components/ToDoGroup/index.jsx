@@ -1,6 +1,6 @@
 import { SubHeading } from "../SubHeading";
 import { ToDoList } from "../ToDoList";
-import { ToDoItem } from "../TodoItem";
+import { ToDoItem } from "../ToDoItem";
 
 
 
