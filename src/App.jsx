@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { ChecklistsWrapper } from "./components/ChecklistsWrapper"
 import { Container } from "./components/Container"
 import { Dialog } from "./components/Dialog"
@@ -8,23 +8,19 @@ import { Header } from "./components/Header"
 import { Heading } from "./components/Heading"
 import { IconPlus, IconSchool } from "./components/icons"
 import { ToDoGroup } from "./components/ToDoGroup"
-import { TextInput } from "./components/TextInput"
-import { Button } from "./components/Button"
 import { ToDoForm } from "./components/ToDoForm"
 import TodoContext from "./components/ToDoProvider/TodoContext."
 
 function App() {
-  const [showDialog, setShowDialog] = useState(false);
-  const { todos, addToDo } = useContext(TodoContext);
+  const { todos, addToDo, showDialog, openFormTodoDialog, closeFormTodoDialog, selectedTodo, editTodo } = useContext(TodoContext);
   
-  const toggleDialog = () => {
-    setShowDialog(prevState => !prevState);
-  }
-
   const handleFormSubmit = (formData) => {
-    addToDo(formData);
-    console.log(todos)
-    toggleDialog();
+    if (selectedTodo) {
+      editTodo(formData)
+    } else {
+      addToDo(formData);
+    }
+    closeFormTodoDialog();
   }
   
   return (
@@ -49,13 +45,10 @@ function App() {
           />
           
           <Footer>
-            <Dialog isOpen={showDialog} onClose={toggleDialog}>
-              <ToDoForm onSubmit={handleFormSubmit}>
-                <TextInput placeholder="Digite o item que deseja adicionar" name="description" required />
-                <Button>Salvar item</Button>
-              </ToDoForm>
+            <Dialog isOpen={showDialog} onClose={closeFormTodoDialog}>
+              <ToDoForm onSubmit={handleFormSubmit} defaultValue={selectedTodo?.description}/>
             </Dialog>
-            <FabButton onClick={toggleDialog}>
+            <FabButton onClick={() => openFormTodoDialog()}>
               <IconPlus />
             </FabButton>
           </Footer>
