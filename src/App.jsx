@@ -9,6 +9,7 @@ import { Heading } from "./components/Heading"
 import { IconPlus, IconSchool } from "./components/icons"
 import { ToDoGroup } from "./components/ToDoGroup"
 import { ToDoForm } from "./components/ToDoForm"
+import { EmptyState } from "./components/EmptyState"
 import TodoContext from "./components/ToDoProvider/TodoContext."
 
 function App() {
@@ -34,11 +35,13 @@ function App() {
         <Dialog />
         <ChecklistsWrapper>
 
+
           <ToDoGroup
             heading="Para estudar"
             items={todos.filter(t => !t.completed)}
           />
 
+          {todos.length == 0 && <EmptyState/>}
           <ToDoGroup
             heading="Concluído"
             items={todos.filter(t => t.completed)}
